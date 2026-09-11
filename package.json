@@ -1,0 +1,22 @@
+{
+  "name": "cordova-plugin-email-inbox",
+  "version": "1.0.0",
+  "description": "Opens the native email app inbox",
+  "cordova": {
+    "id": "cordova-plugin-email-inbox",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "keywords": [
+    "cordova",
+    "device",
+    "email",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "author": "",
+  "license": "Apache 2.0"
+}

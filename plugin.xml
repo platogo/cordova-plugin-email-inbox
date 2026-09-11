@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="cordova-plugin-email-inbox" version="1.0.0">
+    <name>Email Inbox</name>
+    <description>Opens the native email app inbox</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,device,email</keywords>
+    <js-module src="www/EmailInboxPlugin.js" name="EmailInboxPlugin">
+        <clobbers target="EmailInboxPlugin" />
+    </js-module>
+
+    <platform name="android">
+        <config-file target="config.xml" parent="/*">
+            <feature name="EmailInboxPlugin">
+                <param name="android-package" value="com.platogo.cordova.emailinbox.EmailInboxPlugin"/>
+            </feature>
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <queries>
+                <intent>
+                    <action android:name="android.intent.action.MAIN"/>
+                    <category android:name="android.intent.category.APP_EMAIL"/>
+                </intent>
+            </queries>
+        </config-file>
+        <source-file src="src/android/EmailInboxPlugin.java" target-dir="src/com/platogo/cordova/emailinbox" />
+    </platform>
+
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="EmailInboxPlugin">
+                <param name="ios-package" value="EmailInboxPlugin" />
+            </feature>
+        </config-file>
+        <config-file target="*-Info.plist" parent="LSApplicationQueriesSchemes">
+            <array>
+                <string>message</string>
+            </array>
+        </config-file>
+        <source-file src="src/ios/EmailInboxPlugin.swift" />
+    </platform>
+</plugin>
