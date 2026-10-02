@@ -26,6 +26,7 @@ public class EmailInboxPlugin extends CordovaPlugin {
 
         if (intent.resolveActivity(cordova.getActivity().getPackageManager()) != null) {
             Intent chooser = Intent.createChooser(intent, "Open mail app with…");
+            chooser.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             cordova.getActivity().startActivity(chooser);
             callbackContext.success();
         } else {
